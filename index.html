@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البرهان الساطع في الرد على الشبهات والمطاعن</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            min-height: 100vh;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a472a 0%, #2c5aa0 50%, #1e3c72 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 20px;
+        }
+        
+        .tab-button {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Amiri', serif;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .tab-button:hover, .tab-button.active {
+            background: linear-gradient(135deg, #357abd 0%, #2c5aa0 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+        
+        .content-section {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-right: 6px solid #4a90e2;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2c5aa0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .definitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .definition-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border: 2px solid #e8f2ff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .definition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            border-color: #4a90e2;
+        }
+        
+        .definition-title {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .definition-content {
+            color: #444;
+            line-height: 1.8;
+        }
+        
+        .points-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .points-list li {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f2ff 100%);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #4a90e2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .points-list li:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .point-number {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 1.1em;
+        }
+        
+        .point-title {
+            font-weight: 600;
+            color: #1a472a;
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+        
+        .point-content {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .response-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .response-table thead {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1a472a 100%);
+            color: white;
+        }
+        
+        .response-table th {
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        
+        .response-table tbody tr {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .response-table tbody tr:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        }
+        
+        .response-table tbody tr:hover {
+            background: linear-gradient(135deg, #e8f2ff 0%, #d4e8ff 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .response-table td {
+            padding: 20px 15px;
+            text-align: right;
+            vertical-align: top;
+        }
+        
+        .shubha-title {
+            font-weight: 700;
+            color: #d32f2f;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .response-content {
+            color: #2c5aa0;
+            line-height: 1.7;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe8cc 100%);
+            border: 2px solid #ff9800;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.2);
+        }
+        
+        .highlight-title {
+            color: #ef6c00;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 3px solid #4a90e2;
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .definitions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .response-table {
+                font-size: 14px;
+            }
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+            margin-left: 8px;
+        }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .type-card {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);
+        }
+        
+        .type-title {
+            color: #2e7d32;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 البرهان الساطع في الرد على الشبهات والمطاعن 🏆</h1>
+            <p class="subtitle">الدليل الذهبي الشامل لحماة القرآن الكريم</p>
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.15); border-radius: 15px; backdrop-filter: blur(10px);">
+                <p style="font-size: 1.1em; margin-bottom: 8px;">✍️ <strong>إعداد وتجميع:</strong> أخوكم في الله محمود عبدالقوي</p>
+                <p style="font-size: 1em; margin-bottom: 8px;">🤲 أرجو منكم الدعاء • أتمنى التوفيق للجميع</p>
+                <p style="font-size: 1em;">📞 للتواصل: 01069813210</p>
+            </div>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="tab-button active" onclick="showSection('definitions')">
+                <span class="emoji">📚</span>التعريفات الهامة
+            </button>
+            <button class="tab-button" onclick="showSection('importance')">
+                <span class="emoji">🎯</span>أهمية معرفة الشبهات
+            </button>
+            <button class="tab-button" onclick="showSection('types')">
+                <span class="emoji">🧩</span>أنواع المتشابه
+            </button>
+            <button class="tab-button" onclick="showSection('responses')">
+                <span class="emoji">✅</span>الردود على الشبهات
+            </button>
+            <button class="tab-button" onclick="showSection('letters')">
+                <span class="emoji">🔤</span>الحروف المقطعة
+            </button>
+            <button class="tab-button" onclick="showSection('revelation')">
+                <span class="emoji">📖</span>شبهة الوحي النفسي
+            </button>
+            <button class="tab-button" onclick="showSection('similarities')">
+                <span class="emoji">🔄</span>التشابه مع الديانات
+            </button>
+        </div>
+        
+        <!-- التعريفات الهامة -->
+        <div id="definitions" class="content-section active">
+            <div class="section-title">
+                <span class="emoji">📚</span>التعريفات الهامة
+            </div>
+            
+            <div class="definitions-grid">
+                <div class="definition-card">
+                    <div class="definition-title">
+                        <span class="emoji">🔍</span>المتشابه
+                    </div>
+                    <div class="definition-content">
+                        ما خفي معناه واحتاج لتأويل، أو ما اشتبه بغيره في الظاهر.
+                    </div>
+                </div>
+                
+                <div class="definition-card">
+                    <div class="definition-title">
+                        <span class="emoji">❓</span>الشبهات
+                    </div>
+                    <div class="definition-content">
+                        التباس الحق بالباطل لإثارة الشك والريبة في النفوس.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- أهمية معرفة الشبهات -->
+        <div id="importance" class="content-section">
+            <div class="section-title">
+                <span class="emoji">🎯</span>أهمية معرفة الشبهات والرد عليها
+            </div>
+            
+            <ul class="points-list">
+                <li>
+                    <div class="point-number">1.</div>
+                    <div class="point-title">حماية المسلمين من الشك</div>
+                    <div class="point-content">تحصين المؤمنين ضد الشبهات التي تثار حول دينهم</div>
+                </li>
+                <li>
+                    <div class="point-number">2.</div>
+                    <div class="point-title">تقوية الإيمان</div>
+                    <div class="point-content">زيادة اليقين والثقة بصحة العقيدة الإسلامية</div>
+                </li>
+                <li>
+                    <div class="point-number">3.</div>
+                    <div class="point-title">التصدي للطاعنين</div>
+                    <div class="point-content">الرد العلمي الموثق على من يطعن في القرآن الكريم</div>
+                </li>
+                <li>
+                    <div class="point-number">4.</div>
+                    <div class="point-title">تقوية وحدة العلماء والمجتمع المسلم</div>
+                    <div class="point-content">توحيد الجهود في الدفاع عن الدين وترسيخ الوحدة</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- أنواع المتشابه -->
+        <div id="types" class="content-section">
+            <div class="section-title">
+                <span class="emoji">🧩</span>أنواع المتشابه
+            </div>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-title">1. من جهة اللفظ</div>
+                    <div class="point-content">مثل: كلمة "أبّاً" التي تحتاج لتفسير معناها</div>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-title">2. من جهة المعنى</div>
+                    <div class="point-content">مثل: صفات الله تعالى، وأهوال يوم القيامة</div>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-title">3. من جهة اللفظ والمعنى معاً</div>
+                    <div class="point-content">مثل: "وليس البر بأن تأتوا البيوت من ظهورها"</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الردود على الشبهات -->
+        <div id="responses" class="content-section">
+            <div class="section-title">
+                <span class="emoji">✅</span>الرد على أشهر الشبهات
+            </div>
+            
+            <table class="response-table">
+                <thead>
+                    <tr>
+                        <th>الشبهة</th>
+                        <th>الرد العلمي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🔍 لحن في القرآن؟</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الروايات ضعيفة ومضطربة ومخالفة للثابت عن عثمان والصحابة رضي الله عنهم.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">❓ "أفلم ييأس الذين آمنوا"؟</div>
+                        </td>
+                        <td>
+                            <div class="response-content">"ييأس" تعني "يعلم" في بعض لهجات العرب، فلا إشكال في الآية.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">📝 عن السيدة عائشة قالت فيه تحريف؟</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الروايات آحاد ومخالفة للمتواتر، لا تثبت بها قرآنية أو تحريف.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🤔 القرآن كله محكم أم متشابه؟</div>
+                        </td>
+                        <td>
+                            <div class="response-content">كله محكم من حيث الإحكام العام، ومتشابه في بعض الآيات كما في قوله: "منه آيات محكمات وأخر متشابهات".</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🌍 تناقضات مزعومة - خلق الأرض والسماء</div>
+                        </td>
+                        <td>
+                            <div class="response-content">التفصيل يبيّن أن دحو الأرض كان بعد خلق السماء، فلا تناقض.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">😵 "الناس سكارى وما هم بسكارى"</div>
+                        </td>
+                        <td>
+                            <div class="response-content">مجاز لوصف حالهم من شدة هول يوم القيامة، وليس سُكراً حقيقياً.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">⚔️ "وما قتلتهم ولكن الله قتلهم"</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الجمع بين الكسب البشري والتأثير الإلهي، فلا تناقض.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🟥 القرآن مقتبس من اليهود والنصارى</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الإسلام وافق الفطرة، لا الكتب المحرفة، وأتى بجديد في العقيدة والتشريع.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🌍 تناقض في آيات الخلق (الأرض والسماء)</div>
+                        </td>
+                        <td>
+                            <div class="response-content">ترتيب الخلق ليس زمنيًا، والدحو جاء بعد خلق السماء وليس قبله.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">⚖️ القرآن يناقض نفسه في "العدل في التعدد"</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الأولى: العدل في النفقة، الثانية: في الميول القلبية، ولا تناقض.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🔥 آيات الجنة والنار بها تناقض في الطعام</div>
+                        </td>
+                        <td>
+                            <div class="response-content">النار دركات، وأهلها درجات مختلفة، فيختلف طعامهم.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">📝 الصابئة والمسميات في الآيات</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الآيات فيها تقديم وتأخير، و"الصابئون" على وجه الإعراب استئناف أو بدل.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">🎭 "القرآن تغير أسلوبه بين مكة والمدينة"</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الأسلوب تابع للموضوع، وليس دليلًا على اختلاف المصدر، بل هو تكامل.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">📖 "آية المائدة هي آخر ما نزل"</div>
+                        </td>
+                        <td>
+                            <div class="response-content">ليست آية المائدة فقط، هناك آيات كثيرة نزلت بعدها، والتكميل لا يعني الخاتمة.</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <div class="shubha-title">📖 قول السيدة عائشة بتحريف أو خطأ</div>
+                        </td>
+                        <td>
+                            <div class="response-content">الروايات آحاد، لا تثبت بها قرآنية، وقراءة "يؤتون" و"يأتون" مقبولة قرآنيًا.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- الحروف المقطعة -->
+        <div id="letters" class="content-section">
+            <div class="section-title">
+                <span class="emoji">🔤</span>الحروف المقطعة
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">أقوال العلماء في الحروف المقطعة</div>
+            </div>
+            
+            <ul class="points-list">
+                <li>
+                    <div class="point-number">1.</div>
+                    <div class="point-title">أسماء للسور</div>
+                    <div class="point-content">كل حرف أو مجموعة حروف هي اسم للسورة التي تبدأ بها</div>
+                </li>
+                <li>
+                    <div class="point-number">2.</div>
+                    <div class="point-title">أقسام إلهية</div>
+                    <div class="point-content">الله تعالى يقسم بهذه الحروف لعظمتها ومكانتها</div>
+                </li>
+                <li>
+                    <div class="point-number">3.</div>
+                    <div class="point-title">رموز لصفات الله</div>
+                    <div class="point-content">كل حرف يرمز لصفة من صفات الله العظيمة</div>
+                </li>
+                <li>
+                    <div class="point-number">4.</div>
+                    <div class="point-title">معجزة لغوية</div>
+                    <div class="point-content">لا يعلم معناها الحقيقي إلا الله، وهي من المتشابه</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- شبهة الوحي النفسي -->
+        <div id="revelation" class="content-section">
+            <div class="section-title">
+                <span class="emoji">📖</span>الرد على شبهة الوحي النفسي
+            </div>
+            
+            <ul class="points-list">
+                <li>
+                    <div class="point-title">🎓 النبي لم يتعلم من أحد</div>
+                    <div class="point-content">كان أمياً لا يقرأ ولا يكتب، ولم يجالس العلماء أو أهل الكتاب</div>
+                </li>
+                <li>
+                    <div class="point-title">👥 لم يقابل ورقة بن نوفل إلا بعد نزول الوحي</div>
+                    <div class="point-content">اللقاء كان بعد بدء الوحي وليس قبله، فلا تأثير له على الرسالة</div>
+                </li>
+                <li>
+                    <div class="point-title">🏞️ الخلوة كانت للتأمل وليس لاختلاق رسالة</div>
+                    <div class="point-content">كان يتعبد ويتأمل في خلق الله، وليس يؤلف ديناً</div>
+                </li>
+                <li>
+                    <div class="point-title">✨ الإعجاز دليل المصدر الإلهي</div>
+                    <div class="point-content">الإعجاز في القرآن وثبات سيرة النبي دليل على أن الوحي من عند الله</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- التشابه مع الديانات -->
+        <div id="similarities" class="content-section">
+            <div class="section-title">
+                <span class="emoji">🔄</span>الرد على شبهة التشابه مع الديانات السابقة
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-title">الصابئة والتشابه الظاهري مع الإسلام</div>
+                <div class="point-content">
+                    صلاتهم، صيامهم، وحجهم يختلف تماماً عن الإسلام من حيث الشكل، الوقت، اللغة، والنية. 
+                    كل تشابه ظاهري مردود بالتفصيل الدقيق.
+                </div>
+            </div>
+            
+            <ul class="points-list">
+                <li>
+                    <div class="point-title">🌟 ما وافق الفطرة أقره الإسلام</div>
+                    <div class="point-content">مثل الزواج والختان وغيرها من الأمور الفطرية السليمة</div>
+                </li>
+                <li>
+                    <div class="point-title">🚫 الإسلام لم يأخذ عن الحنفاء ولا الصابئة</div>
+                    <div class="point-content">وإنما جدّد دعوة إبراهيم عليه السلام وأكملها</div>
+                </li>
+                <li>
+                    <div class="point-title">🔄 الشرائع السابقة محرفة</div>
+                    <div class="point-content">الصيام والصلاة والحج موجودة في الشرائع السابقة ولكن الإسلام صححها وأكملها</div>
+                </li>
+                <li>
+                    <div class="point-title">📋 التفاصيل تكشف الاختلاف</div>
+                    <div class="point-content">عند النظر في التفاصيل نجد اختلافاً جذرياً في المضمون والغاية والطريقة</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>🌟 البرهان الساطع في الرد على الشبهات والمطاعن 🌟</p>
+            <p>📚 "وقل جاء الحق وزهق الباطل إن الباطل كان زهوقا" 📚</p>
+            <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, #e8f2ff 0%, #f0f8ff 100%); border-radius: 15px; border-top: 3px solid #4a90e2;">
+                <h3 style="color: #2c5aa0; margin-bottom: 15px; text-align: center;">✍️ صاحب التلخيص</h3>
+                <p style="color: #1a472a; font-size: 1.2em; font-weight: 600; margin-bottom: 10px;">أخوكم في الله: <strong>محمود عبدالقوي</strong></p>
+                <p style="color: #666; margin-bottom: 8px;">🤲 أرجو منكم الدعاء بظهر الغيب</p>
+                <p style="color: #666; margin-bottom: 8px;">🌟 أتمنى التوفيق والنجاح للجميع</p>
+                <p style="color: #2c5aa0; font-weight: 600;">📞 للتواصل والاستفسار: <a href="tel:01069813210" style="color: #4a90e2; text-decoration: none;">01069813210</a></p>
+                <p style="color: #888; font-size: 0.9em; margin-top: 15px; font-style: italic;">"ومن أحياها فكأنما أحيا الناس جميعاً" - شاركوا الخير تؤجروا</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // إخفاء جميع الأقسام
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // إخفاء جميع أزرار التبويب
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // إظهار القسم المحدد
+            document.getElementById(sectionId).classList.add('active');
+            
+            // تفعيل الزر المحدد
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
